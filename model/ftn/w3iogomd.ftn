@@ -454,6 +454,8 @@
 !/OASACM             FLG2D(2,1)=.TRUE.
 !/OASOCM           CASE('OHS')
 !/OASOCM             FLG2D(2,1)=.TRUE.
+!/OASOCM           CASE('THM')
+!/OASOCM             FLG2D(2,18)=.TRUE. 
            CASE('HS')
              FLG2D(2,1)=.TRUE.
            CASE('LM')

@@ -863,6 +863,14 @@
 !/OASOCM            ID_NB_SND = ID_NB_SND +1
 !/OASOCM            SND(ID_NB_SND)%CL_FIELD_NAME='WW3_T0M1'
 !
+!/OASOCM         CASE('THM')
+!/OASOCM            ! THM / wave_thm : mean direction (n/a)
+!/OASOCM            ! in case THM (in ww3_shelp.inp for coupling field)
+!/OASOCM            ! exchange the mean dirextion and NOT the cos/sin projection
+!/OASOCM            ! the projection is done in croco after
+!/OASOCM            ID_NB_SND = ID_NB_SND +1
+!/OASOCM            SND(ID_NB_SND)%CL_FIELD_NAME='WW3__DIR'
+!
 !/OASOCM         CASE('DIR')
 !/OASOCM            ! THM / wave_thm : cosinus of mean direction (n/a)
 !/OASOCM            ID_NB_SND = ID_NB_SND +1
