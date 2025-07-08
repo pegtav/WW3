@@ -1,0 +1,47 @@
+#PBS -S /bin/bash
+#PBS -N comp-WW3
+
+#PBS -p 0
+#PBS -l walltime=00:20:00
+#PBS -l select=1:ncpus=1:mpiprocs=1:mem=1g
+
+### #PBS -e ${PBS_JOBNAME}.e${PBS_JOBID}
+### #PBS -o ${PBS_JOBNAME}.o${PBS_JOBID}
+
+ww3_folder=/scale/user/pgradefe/WW3
+comp=DATARMOR
+switch=Ifremer2
+
+# Change to the directory where the job was submitted
+cd "$PBS_O_WORKDIR"
+
+# Set user file creation mask
+umask 002
+
+# Load the required libraries
+source /usr/share/Modules/3.2.10/init/bash
+module purge
+module load NETCDF/4.3.3.1-mpt-intel2016 # Faster (9:03.32), but the result is not as exact as caparmor (?)
+
+# -- WW3 environment settings --
+# These compilation instructions assume that wwatch3.env has been set up correctly !
+export WWATCH3_NETCDF=NC4
+export NETCDF_CONFIG=$(command -v nc-config)
+
+# Submit the job
+date
+printf "Working on $PBS_O_WORKDIR\n"
+
+printf "Running w3_setup ...\n"
+time $ww3_folder/model/bin/w3_setup $ww3_folder/model -q -c $comp -s $switch > ${PBS_JOBNAME}_w3_setup.log 2>&1
+printf "\nSetup complete !\n"
+
+printf "Running w3_automake ...\n"
+time $ww3_folder/model/bin/w3_automake > ${PBS_JOBNAME}_w3_automake.log 2>&1
+printf "\nCompilation complete !\n"
+
+printf "Moving exe folder ... "
+mv -v $ww3_folder/model/exe/* $PBS_O_WORKDIR/../ >> ${PBS_JOBNAME}_w3_automake.log 2>&1
+printf "Done !\n"
+date
+
