@@ -1,5 +1,5 @@
 #PBS -S /bin/bash
-#PBS -N comp-WW3
+#PBS -N comp-WW3-v6071
 
 #PBS -p 0
 #PBS -l walltime=00:20:00
@@ -8,7 +8,7 @@
 ### #PBS -e ${PBS_JOBNAME}.e${PBS_JOBID}
 ### #PBS -o ${PBS_JOBNAME}.o${PBS_JOBID}
 
-ww3_folder=/scale/user/pgradefe/WW3
+ww3_folder=/scale/user/pgradefe/WW3/ww3-v6.07.1
 comp=DATARMOR
 switch=Ifremer2
 
