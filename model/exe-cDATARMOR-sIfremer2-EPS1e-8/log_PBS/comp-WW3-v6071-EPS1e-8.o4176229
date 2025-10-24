@@ -1,0 +1,18 @@
+Fri Oct 24 09:31:16 GMT 2025
+Working on /scale/user/pgradefe/WW3/ww3-v6.07.1/model/exe-cDATARMOR-sIfremer2-EPS1e-8/log_PBS
+Running w3_setup ...
+
+real	0m0.164s
+user	0m0.008s
+sys	0m0.000s
+
+Setup complete !
+Running w3_automake ...
+
+real	12m51.323s
+user	10m35.692s
+sys	0m36.200s
+
+Compilation complete !
+Moving exe folder ... Done !
+Fri Oct 24 09:44:07 GMT 2025

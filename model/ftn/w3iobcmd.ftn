@@ -442,7 +442,7 @@
               ! W3GFTP: find the nearest grid point to the input boundary point
               ! DCIN=0.1 is the distance outside of source grid in units of
               ! cell width to treat target point as inside the source grid.
-              IF ( W3GFPT( GSU, XBPI(I), YBPI(I), IX, IY, EPS=1.0D-8, DCIN=0.1 ) ) THEN
+              IF ( W3GFPT( GSU, XBPI(I), YBPI(I), IX, IY, EPS=1.0E-8, DCIN=0.1 ) ) THEN
                 IF ( ABS(MAPSTA(IY,IX)) .NE. 2 ) THEN
                     IF ( IAPROC .EQ. NAPERR )                         &
                         WRITE (NDSE,909) IX, IY, ABS(MAPSTA(IY,IX))
