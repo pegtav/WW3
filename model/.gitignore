@@ -11,3 +11,11 @@ nuopc*.mk
 aux/makefile
 ftn/makefile
 ftn/makefile_*
+
+work
+work_*
+tmp_*
+exe-*/*
+!exe-*/*/
+exe-*/**/*.log
+exe-*/**/*.o*
