@@ -11,7 +11,7 @@
 ### #SBATCH --error=%x.e%j
 
 ww3_folder=/scale/user/pgradefe/WW3/ww3-v6.07.1
-comp=DATARMOR_debug
+comp=HPC_debug
 switch=T475
 
 # Change to the directory where the job was submitted
@@ -27,7 +27,7 @@ module load netcdf-fortran/4.6.2-parallel
 # -- WW3 environment settings --
 # These compilation instructions assume that wwatch3.env has been set up correctly !
 export WWATCH3_NETCDF=NC4
-export NETCDF_CONFIG=$(command -v nc-config)
+export NETCDF_CONFIG=$(command -v nf-config)  # Fortran config: gives netcdf.mod dir and -lnetcdff
 
 # Submit the job
 date
