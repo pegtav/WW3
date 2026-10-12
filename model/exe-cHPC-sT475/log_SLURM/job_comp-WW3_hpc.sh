@@ -11,7 +11,7 @@
 ### #SBATCH --error=%x.e%j
 
 ww3_folder=/scale/user/pgradefe/WW3/ww3-v6.07.1
-comp=HPC_debug
+comp=HPC
 switch=T475
 
 # Change to the directory where the job was submitted
